@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            background: linear-gradient(to right, #108dc7, #ef8e38);
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h1 class="heading">Guess the number between 1 to 9</h1>
+        <div class="flex">
+            <h3 class="msg"></h3>
+            <input type="text" id="input1">
+            <button onclick="random()">Submit</button>
+        </div>
+    </div>
+    <script>
+        const input1 = document.querySelector('#input1');
+        const msg = document.querySelector('.msg');
+
+        const num = Math.floor(Math.random() * 6) + 1
+        console.log(num);
+        function random() {
+            const val1 = input1.value;
+            if (num == val1) {
+                msg.textContent = "🥳 congragulation you won the game";
+            } else if (num < val1) {
+                msg.textContent = "try lesses number";
+            } else if (num > val1) {
+                msg.textContent = "try greater number";
+            }
+            else {
+
+                msg.textContent = "🤕 Ooops wrong guess";
+            }
+
+        }
+    </script>
+</body>
+
+</html>
